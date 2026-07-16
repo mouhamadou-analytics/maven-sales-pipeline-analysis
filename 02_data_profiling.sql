@@ -1,9 +1,13 @@
---Data Profiling
---Project: Sales Pipeline Analysis
---Purpose: Assess Data structure, copmpletness, uniqueness, validity, and consistency
+/*
+===============================================================================
+Project: Maven Sales Pipeline Analysis
+Script:  02_data_profiling.sql
+Purpose: Assess data structure, completeness, uniqueness, validity,
+         and referential consistency before analysis.
+===============================================================================
+*/
 
---1. Verification of the row count table
--- 1. Row counts by table
+-- 1. Verify row counts by table.
 SELECT 'accounts' AS table_name, COUNT(*) AS row_count
 FROM maven_sales_pipeline.accounts
 UNION ALL
@@ -84,7 +88,7 @@ FROM maven_sales_pipeline.sales_pipeline
 GROUP BY deal_stage
 ORDER BY opportunities DESC;
 
--- Check Dupilcate records
+-- Check duplicate records.
 SELECT
     account,
     COUNT(*) AS occurrences
